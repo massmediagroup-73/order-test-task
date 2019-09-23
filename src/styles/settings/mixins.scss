@@ -1,0 +1,92 @@
+@mixin clearfix {
+  &::before,
+  &::after {
+    content: " ";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+@function calculate-rem($size) {
+  $rem-size: $size / 16px;
+  @return $rem-size * 1rem;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin center-me() {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin center-h() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-v() {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+@mixin df() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin media-below($max-breakpoint) {
+  $max-width: (get-breakpoint("horizontal", $max-breakpoint));
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin media-above($min-breakpoint) {
+  $min-width: get-breakpoint("horizontal", $min-breakpoint);
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin media-hd() {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin media-uhd() {
+  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi), (min-resolution: 3dppx) {
+    @content;
+  }
+}

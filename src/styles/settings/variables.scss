@@ -1,0 +1,34 @@
+// Palette
+$black: #000;
+$white: #fff;
+$primary: #0062ff;
+$secondary: #e5e5e5;
+$info: #2d4657;
+$success: #62a868;
+$warning: #e09830;
+$danger: #f44336;
+$text-dark: #171725;
+$text-light: #BEBEC4;
+$light: rgba(190, 190, 196, 0.1);
+
+// Breakpoints
+$breakpoints: (
+  "horizontal": (
+    "xs": 375px,
+    "sm": 480px,
+    "tb": 600px,
+    "md": 768px,
+    "lg": 1024px,
+    "xl": 1280px,
+    "lt": 1440px,
+    "hd": 1680px,
+    "fhd": 1920px
+  ),
+  "vertical": (
+    "xs": 300px,
+    "sm": 450px,
+    "md": 600px,
+    "lg": 750px,
+    "xl": 900px
+  )
+);
